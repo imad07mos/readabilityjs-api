@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  readability-api:
+    build: .
+    ports:
+      - "3000:3000" # Maps host port 3000 to container port 3000
+    environment:
+      # !! IMPORTANT: Change this to a strong, unique token for production !!
+      SECRET_TOKEN: ${SECRET_TOKEN}
+      PORT: 3000
+    restart: unless-stopped # Keep the container running unless explicitly stopped
